@@ -9,14 +9,14 @@ using System.Threading.Tasks;
 
 namespace EntityMaker
 {
-    class CGenerator
+    class CGeneratorMysql : IGenerator
     {
         public MySqlConnection cn;
         public delegate void StatusMessage(string message);
         public StatusMessage LogHandler;
         public string template;
 
-        public CGenerator(string tplate)
+        public CGeneratorMysql(string tplate)
         {
             template = tplate;
             cn = new MySqlConnection();

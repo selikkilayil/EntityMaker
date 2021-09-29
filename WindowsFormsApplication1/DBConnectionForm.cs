@@ -18,6 +18,9 @@ namespace EntityMaker
         public string dbUsername = "";
         public string dbPassword = "";
 
+        public bool isWindowsAuth = false;
+        public int SqlEngine = 0;
+
         public DBConnectionForm()
         {
             InitializeComponent();
@@ -40,6 +43,10 @@ namespace EntityMaker
            dbPort    = textPort.Text;
            dbUsername = textUsername.Text;
            dbPassword = textPassword.Text;
+
+           SqlEngine = rbtnMysql.Checked ? 1 : 0;
+           
+
            this.DialogResult = DialogResult.OK;
            this.Close();
         }
@@ -54,6 +61,21 @@ namespace EntityMaker
                 textUsername.Text   = Properties.Settings.Default.Username;
                 textPassword.Text   = Properties.Settings.Default.password;
             }
+        }
+
+        private void btnWindowsAuth_Click(object sender, EventArgs e)
+        {
+            dbName = textDb.Text;
+            dbserver = textServer.Text;
+            dbPort = textPort.Text;
+            dbUsername = textUsername.Text;
+            dbPassword = textPassword.Text;
+
+            SqlEngine = rbtnMysql.Checked ? 1 : 0;
+            isWindowsAuth = true;
+
+            this.DialogResult = DialogResult.OK;
+            this.Close();
         }
     }
 }

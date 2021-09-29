@@ -40,25 +40,28 @@
             this.textPort = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.btnWindowsAuth = new System.Windows.Forms.Button();
+            this.rbtnServer = new System.Windows.Forms.RadioButton();
+            this.rbtnMysql = new System.Windows.Forms.RadioButton();
             this.SuspendLayout();
             // 
             // textDb
             // 
-            this.textDb.Location = new System.Drawing.Point(32, 118);
+            this.textDb.Location = new System.Drawing.Point(32, 153);
             this.textDb.Name = "textDb";
             this.textDb.Size = new System.Drawing.Size(204, 20);
             this.textDb.TabIndex = 2;
             // 
             // textUsername
             // 
-            this.textUsername.Location = new System.Drawing.Point(32, 161);
+            this.textUsername.Location = new System.Drawing.Point(32, 196);
             this.textUsername.Name = "textUsername";
             this.textUsername.Size = new System.Drawing.Size(204, 20);
             this.textUsername.TabIndex = 3;
             // 
             // textPassword
             // 
-            this.textPassword.Location = new System.Drawing.Point(32, 201);
+            this.textPassword.Location = new System.Drawing.Point(32, 236);
             this.textPassword.Name = "textPassword";
             this.textPassword.Size = new System.Drawing.Size(204, 20);
             this.textPassword.TabIndex = 4;
@@ -66,7 +69,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(29, 102);
+            this.label1.Location = new System.Drawing.Point(29, 137);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(57, 13);
             this.label1.TabIndex = 1;
@@ -75,7 +78,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(29, 145);
+            this.label2.Location = new System.Drawing.Point(29, 180);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(55, 13);
             this.label2.TabIndex = 1;
@@ -84,7 +87,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(29, 184);
+            this.label3.Location = new System.Drawing.Point(29, 219);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(53, 13);
             this.label3.TabIndex = 1;
@@ -92,7 +95,7 @@
             // 
             // textServer
             // 
-            this.textServer.Location = new System.Drawing.Point(32, 26);
+            this.textServer.Location = new System.Drawing.Point(32, 61);
             this.textServer.Name = "textServer";
             this.textServer.Size = new System.Drawing.Size(204, 20);
             this.textServer.TabIndex = 0;
@@ -100,7 +103,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(29, 10);
+            this.label4.Location = new System.Drawing.Point(29, 45);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(38, 13);
             this.label4.TabIndex = 1;
@@ -108,7 +111,7 @@
             // 
             // btnSqlConnect
             // 
-            this.btnSqlConnect.Location = new System.Drawing.Point(161, 234);
+            this.btnSqlConnect.Location = new System.Drawing.Point(161, 315);
             this.btnSqlConnect.Name = "btnSqlConnect";
             this.btnSqlConnect.Size = new System.Drawing.Size(75, 23);
             this.btnSqlConnect.TabIndex = 6;
@@ -118,7 +121,7 @@
             // 
             // textPort
             // 
-            this.textPort.Location = new System.Drawing.Point(32, 67);
+            this.textPort.Location = new System.Drawing.Point(32, 102);
             this.textPort.Name = "textPort";
             this.textPort.Size = new System.Drawing.Size(142, 20);
             this.textPort.TabIndex = 1;
@@ -126,7 +129,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(29, 51);
+            this.label5.Location = new System.Drawing.Point(29, 86);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(26, 13);
             this.label5.TabIndex = 1;
@@ -135,18 +138,53 @@
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(32, 240);
+            this.checkBox1.Location = new System.Drawing.Point(32, 275);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(54, 17);
             this.checkBox1.TabIndex = 5;
             this.checkBox1.Text = "Save ";
             this.checkBox1.UseVisualStyleBackColor = true;
             // 
+            // btnWindowsAuth
+            // 
+            this.btnWindowsAuth.Location = new System.Drawing.Point(32, 315);
+            this.btnWindowsAuth.Name = "btnWindowsAuth";
+            this.btnWindowsAuth.Size = new System.Drawing.Size(85, 23);
+            this.btnWindowsAuth.TabIndex = 7;
+            this.btnWindowsAuth.Text = "Windows Auth";
+            this.btnWindowsAuth.UseVisualStyleBackColor = true;
+            this.btnWindowsAuth.Click += new System.EventHandler(this.btnWindowsAuth_Click);
+            // 
+            // rbtnServer
+            // 
+            this.rbtnServer.AutoSize = true;
+            this.rbtnServer.Location = new System.Drawing.Point(45, 12);
+            this.rbtnServer.Name = "rbtnServer";
+            this.rbtnServer.Size = new System.Drawing.Size(74, 17);
+            this.rbtnServer.TabIndex = 8;
+            this.rbtnServer.TabStop = true;
+            this.rbtnServer.Text = "Sql Server";
+            this.rbtnServer.UseVisualStyleBackColor = true;
+            // 
+            // rbtnMysql
+            // 
+            this.rbtnMysql.AutoSize = true;
+            this.rbtnMysql.Location = new System.Drawing.Point(136, 12);
+            this.rbtnMysql.Name = "rbtnMysql";
+            this.rbtnMysql.Size = new System.Drawing.Size(54, 17);
+            this.rbtnMysql.TabIndex = 8;
+            this.rbtnMysql.TabStop = true;
+            this.rbtnMysql.Text = "MySql";
+            this.rbtnMysql.UseVisualStyleBackColor = true;
+            // 
             // DBConnectionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(273, 273);
+            this.ClientSize = new System.Drawing.Size(273, 361);
+            this.Controls.Add(this.rbtnMysql);
+            this.Controls.Add(this.rbtnServer);
+            this.Controls.Add(this.btnWindowsAuth);
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.btnSqlConnect);
             this.Controls.Add(this.label3);
@@ -182,5 +220,8 @@
         private System.Windows.Forms.TextBox textPort;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.Button btnWindowsAuth;
+        private System.Windows.Forms.RadioButton rbtnServer;
+        private System.Windows.Forms.RadioButton rbtnMysql;
     }
 }

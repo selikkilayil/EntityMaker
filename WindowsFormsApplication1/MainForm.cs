@@ -25,7 +25,7 @@ namespace EntityMaker
         TextStyle MaroonStyle = new TextStyle(Brushes.Maroon, null, FontStyle.Regular);
         MarkerStyle SameWordsStyle = new MarkerStyle(new SolidBrush(Color.FromArgb(40, Color.Gray)));
 
-        CGenerator CG;
+        IGenerator CG;
         bool connected = false;
         public Create()
         {
@@ -58,14 +58,30 @@ namespace EntityMaker
 
         private void button2_Click(object sender, EventArgs e)
         {
-            CG = new CGenerator(temptxt.Text);
+            
             try
             {
                 DBConnectionForm dBConnectionForm = new DBConnectionForm();
                 var dResult =dBConnectionForm.ShowDialog();
+                if(dBConnectionForm.SqlEngine == 0 )
+                {
+                    CG = new CGeneratorSqlServer(temptxt.Text);
+                }
+                else
+                {
+                    CG = new CGeneratorMysql(temptxt.Text);
+                }
                 if (dResult == DialogResult.OK)
                 {
-                    var result = CG.Initilize($"database={dBConnectionForm.dbName};user id={dBConnectionForm.dbUsername};pwd={dBConnectionForm.dbPassword};server={dBConnectionForm.dbserver};port={dBConnectionForm.dbPort};Persist Security Info=False;Integrated Security=FALSE;Max Pool Size=1000;Pooling=true;allow user variables = true;CacheServerProperties=true;");
+                    var result = Tuple.Create(false,"");
+                    if (dBConnectionForm.SqlEngine == 1)
+                        result = CG.Initilize($"database={dBConnectionForm.dbName};user id={dBConnectionForm.dbUsername};pwd={dBConnectionForm.dbPassword};server={dBConnectionForm.dbserver};port={dBConnectionForm.dbPort};Persist Security Info=False;Integrated Security=FALSE;Max Pool Size=1000;Pooling=true;allow user variables = true;CacheServerProperties=true;");
+                    else if (dBConnectionForm.SqlEngine == 0 && dBConnectionForm.isWindowsAuth)
+                        result = CG.Initilize($"Data Source=.;Initial Catalog={dBConnectionForm.dbName};Integrated Security=true");
+                    else if (dBConnectionForm.SqlEngine == 0 && !dBConnectionForm.isWindowsAuth)
+                        result = CG.Initilize($"Server={dBConnectionForm.dbserver};Database={dBConnectionForm.dbName};User Id={dBConnectionForm.dbUsername};Password={dBConnectionForm.dbPassword};");
+
+
                     if (!result.Item1)
                     {
                         if (MessageBox.Show(result.Item2, "Error", MessageBoxButtons.RetryCancel) == DialogResult.Retry)

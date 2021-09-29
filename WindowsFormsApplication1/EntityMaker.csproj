@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>EntityMaker</RootNamespace>
     <AssemblyName>EntityMaker</AssemblyName>
-    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
     <PublishUrl>publish\</PublishUrl>
@@ -95,20 +95,22 @@
     <Compile Include="DBConnectionForm.Designer.cs">
       <DependentUpon>DBConnectionForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainForm%27.cs">
+    <Compile Include="GeneratorSqlServer.cs" />
+    <Compile Include="IGenerator.cs" />
+    <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainForm%27.Designer.cs">
-      <DependentUpon>MainForm%27.cs</DependentUpon>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Generator.cs" />
+    <Compile Include="GeneratorMysql.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="DBConnectionForm.resx">
       <DependentUpon>DBConnectionForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainForm%27.resx">
-      <DependentUpon>MainForm%27.cs</DependentUpon>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
